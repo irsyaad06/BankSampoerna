@@ -17,13 +17,22 @@ const digitalPaths = [
 export default function Home() {
   const digital = digitalPaths.flatMap((path) => bankPages.filter((page) => page.path === path));
   return <main id="konten">
-    <section className="shell hero" aria-labelledby="judul">
-      <div className="hero-copy"><p className="eyebrow"><span /> Bank Sahabat Sampoerna</p>
+    <section className="bank-hero" aria-labelledby="judul">
+      <div className="shell bank-hero-copy">
+        <p className="eyebrow">Bank Sahabat Sampoerna</p>
         <h1 id="judul">Mari berkembang <em>bersama.</em></h1>
-        <p className="lede">Solusi perbankan untuk perorangan, UMKM, koperasi, institusi keuangan, dan korporasi.</p>
-        <div className="actions"><Link className="button primary" href="/product">Jelajahi produk →</Link><Link className="text-link" href="/sampoerna-digital">Sampoerna Digital →</Link></div>
+        <p className="lede">Tabungan, pembiayaan usaha, dan layanan digital untuk individu dan bisnis.</p>
+        <div className="actions">
+          <Link className="button primary" href="/product">Jelajahi produk <span aria-hidden="true">→</span></Link>
+          <Link className="text-link" href="/sampoerna-digital">Sampoerna Digital <span aria-hidden="true">→</span></Link>
+        </div>
       </div>
-      <div className="hero-art"><Image src="/smb-hero.webp" alt="Seorang perempuan menggunakan layanan perbankan melalui ponsel" fill preload sizes="(max-width: 760px) 100vw, 55vw" /><div className="hero-shade" /></div>
+      <div className="bank-hero-scene" aria-hidden="true">
+        <div className="bank-hero-rings" />
+        <div className="bank-hero-card">
+          <Image src="/bank-card-hero.webp" alt="" fill preload sizes="(max-width: 600px) 85vw, 420px" />
+        </div>
+      </div>
     </section>
     <div className="shell trust"><span aria-hidden="true">◇</span><p>{regulatory}</p></div>
     <section className="shell section"><div className="section-head"><div><p className="eyebrow"><span /> Produk & Layanan</p><h2>Untuk setiap tahap perjalananmu.</h2></div></div>

@@ -191,3 +191,74 @@ footer { border-top: 1px solid var(--line); padding: 27px 0 84px; }
 @media (max-width: 355px) { .bank-header img { width: 94px; } }
 
 .bank-updates { padding-bottom: 0; }
+
+.bank-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 88%, #f0e3ce 0%, transparent 62%), var(--ivory);
+}
+.bank-hero-copy {
+  position: relative;
+  z-index: 1;
+  padding-top: clamp(45px, 5.8vw, 92px);
+  text-align: center;
+}
+.bank-hero-copy .eyebrow { justify-content: center; }
+.bank-hero-copy h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: clamp(49px, 7.2vw, 112px);
+  letter-spacing: -.075em;
+  line-height: .98;
+}
+.bank-hero-copy h1 em {
+  display: block;
+  color: var(--wine);
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -.07em;
+}
+.bank-hero-copy .lede { max-width: 43ch; margin: 21px auto 23px; }
+.bank-hero-copy .actions { justify-content: center; }
+.bank-hero-scene {
+  position: relative;
+  height: clamp(240px, 32vw, 450px);
+  margin-top: 22px;
+}
+.bank-hero-rings {
+  position: absolute;
+  inset: -30% -12% -8%;
+  pointer-events: none;
+  background: repeating-radial-gradient(ellipse at 50% 89%, transparent 0 37px, #a5842f20 38px, transparent 39px 55px);
+  mask-image: radial-gradient(ellipse at 50% 68%, #000 8%, transparent 72%);
+}
+.bank-hero-card {
+  position: absolute;
+  width: min(85vw, 420px);
+  height: calc(100% + 100px);
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+}
+.bank-hero-card img { object-fit: contain; object-position: center top; }
+@keyframes bank-hero-background {
+  to { transform: translateY(-42px); }
+}
+@keyframes bank-hero-foreground {
+  to { transform: translateY(75px); }
+}
+@supports (animation-timeline: scroll(root block)) {
+  @media (prefers-reduced-motion: no-preference) {
+    .bank-hero-rings, .bank-hero-card {
+      animation: bank-hero-background linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0px 600px;
+    }
+    .bank-hero-card { animation-name: bank-hero-foreground; }
+  }
+}
+@media (max-width: 600px) {
+  .bank-hero-copy .lede { font-size: 1rem; }
+  .bank-hero-copy .actions { gap: 12px; }
+  .bank-hero-scene { margin-top: 16px; }
+}
