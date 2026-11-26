@@ -1,69 +1,64 @@
 import Image from "next/image";
+import { Help, Search } from "./assist";
+import { faq, features, official, products, stores } from "./content";
+
+const nav = [
+  { label: "Produk", href: "#produk" },
+  { label: "Fitur", href: "#fitur" },
+  { label: "Promo", href: "#promo" },
+  { label: "Informasi", href: "#bantuan" },
+];
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+  return <>
+    <a className="skip" href="#konten">Lewati ke konten</a>
+    <header className="site-header">
+      <div className="shell header-inner">
+        <a className="brand" href="#beranda" aria-label="Bank Sahabat Sampoerna, beranda"><Image src="/logo_bs.png" alt="Bank Sahabat Sampoerna" width={154} height={52} priority /></a>
+        <nav className="desktop-nav" aria-label="Navigasi utama">{nav.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}</nav>
+        <div className="header-actions">
+          <Search />
+          <a className="button primary header-cta" href="#unduh">Unduh aplikasi <span aria-hidden="true">→</span></a>
+          <details className="mobile-nav"><summary aria-label="Menu navigasi">≡</summary><nav aria-label="Navigasi seluler">{nav.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}<a href="#unduh">Unduh aplikasi</a></nav></details>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+    </header>
+    <main id="konten">
+      <section className="shell hero" id="beranda" aria-labelledby="judul">
+        <div className="hero-copy">
+          <p className="eyebrow"><span /> Sampoerna Mobile Banking</p>
+          <h1 id="judul">Lebih dekat dengan <em>tujuanmu.</em></h1>
+          <p className="lede">Buka rekening, kelola tabungan, dan lakukan transaksi harian. Semuanya dari Sampoerna Mobile Banking.</p>
+          <div className="actions"><a className="button primary" href="#unduh">Unduh aplikasi <span aria-hidden="true">→</span></a><a className="text-link" href="#produk">Jelajahi produk <span aria-hidden="true">↓</span></a></div>
         </div>
-      </main>
-    </div>
-  );
+        <div className="hero-art">
+          <Image src="/smb-hero.webp" alt="Seorang perempuan menggunakan ponsel di kafe" fill sizes="(max-width: 760px) 100vw, 53vw" preload />
+          <div className="hero-shade" />
+          <div className="hero-caption"><span className="caption-icon" aria-hidden="true">→</span><span><strong>Perbankan dalam genggaman</strong><small>Bank Sahabat Sampoerna</small></span></div>
+        </div>
+      </section>
+      <div className="shell trust"><span aria-hidden="true">◇</span><p>Bank Sahabat Sampoerna berizin dan diawasi oleh Otoritas Jasa Keuangan dan Bank Indonesia, serta merupakan peserta penjaminan LPS.</p></div>
+
+      <section className="shell section" id="produk" aria-labelledby="judul-produk">
+        <div className="section-head"><div><p className="eyebrow"><span /> Produk</p><h2 id="judul-produk">Rencana berbeda.<br /> Pilihan yang tepat.</h2></div><a className="text-link" href={official + "/our-product/"}>Semua produk <span aria-hidden="true">→</span></a></div>
+        <div className="bento">{products.map((product, index) => <article className={index === 0 ? "product product-featured" : "product"} key={product.title}>
+          <span className="product-symbol" aria-hidden="true">{product.symbol}</span>
+          <div><p className="product-type">{product.type}</p><h3>{product.title}</h3><p>{product.description}</p><a className="text-link" href={product.href} aria-label={"Detail " + product.title}>Detail produk <span aria-hidden="true">→</span></a></div>
+        </article>)}</div>
+      </section>
+
+      <section className="feature-band" id="fitur"><div className="shell section"><p className="eyebrow"><span /> Fitur & transaksi</p><h2>Kebutuhan harian, lebih praktis.</h2><div className="feature-grid">{features.map((item) => <article key={item.title}><span aria-hidden="true">{item.symbol}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></div></section>
+
+      <section className="shell section" id="promo"><div className="promo"><div><p className="eyebrow"><span /> Promo & program</p><h2>Temukan kesempatan berikutnya.</h2><p>Cek penawaran, program undian, dan informasi acara dari Sampoerna Mobile Banking.</p></div><div className="actions"><a className="button primary" href={official + "/promo/"}>Lihat promo <span aria-hidden="true">→</span></a><a className="text-link" href={official + "/undian-2026/"}>Informasi undian <span aria-hidden="true">→</span></a><a className="text-link" href={official + "/event-lainnya/"}>Jadwal acara <span aria-hidden="true">→</span></a></div></div></section>
+
+      <section className="shell section faq" id="bantuan">
+        <div><p className="eyebrow"><span /> Informasi & bantuan</p><h2>Ada yang ingin ditanyakan?</h2><p>Phone Banking <a href="tel:1500035">1500 035</a></p></div>
+        <div>{faq.map((item) => <details key={item.title}><summary>{item.title}<span aria-hidden="true">+</span></summary><p>{item.description}</p></details>)}</div>
+      </section>
+
+      <section className="shell section" id="unduh"><div className="download"><div><p className="eyebrow"><span /> Mulai dari aplikasi</p><h2>Bawa bankmu ke mana saja.</h2><p>Unduh Sampoerna Mobile Banking dari toko aplikasi resmi.</p></div><div className="actions">{stores.map((store) => <a key={store.label} className="button store" href={store.href}>{store.label} <span aria-hidden="true">→</span></a>)}</div></div></section>
+    </main>
+    <footer><div className="shell footer-inner"><div><strong>Bank Sahabat Sampoerna</strong><small>Prototype desain · Sampoerna Mobile Banking</small></div><nav aria-label="Navigasi footer"><a href={official + "/tentang-kami/"}>Tentang kami →</a><a href="tel:1500035">Phone Banking</a><a href="#beranda">Ke atas ↑</a></nav></div></footer>
+    <Help />
+  </>;
 }
