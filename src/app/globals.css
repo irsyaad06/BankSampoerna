@@ -140,3 +140,21 @@ footer { border-top: 1px solid var(--line); padding: 27px 0 84px; }
 }
 @media (max-width: 350px) { .feature-grid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
+.subpage { padding-top: clamp(24px, 5vw, 65px); }
+.breadcrumbs { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-bottom: 20px; font-size: .85rem; color: var(--muted); }
+.breadcrumbs a { text-decoration: underline; text-underline-offset: 4px; }
+.subpage-hero { padding: clamp(25px, 6vw, 90px); border: 1px solid var(--line); border-radius: 28px 28px 90px 28px; background: radial-gradient(ellipse at 100% 0%, #ecd1c6, transparent 70%), #f5ede0; }
+.subpage-hero h1 { max-width: 17ch; font-size: clamp(43px, 7vw, 88px); overflow-wrap: anywhere; }
+.subpage-hero h1 + p { max-width: 60ch; margin-top: 16px; color: var(--muted); font-size: 1.06rem; }
+.subpage-grid, .subpage-body { display: grid; gap: 16px; margin-top: 25px; }
+.subpage-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.subpage-body { grid-template-columns: 1.35fr 1fr; }
+.subpage-card { padding: clamp(20px, 4vw, 36px); border-radius: 23px; background: var(--paper); border: 1px solid var(--line); }
+.subpage-card h2 { font-size: clamp(27px, 3vw, 39px); }
+.subpage-card p { color: var(--muted); margin-block: 12px 18px; }
+.subpage-card .actions { margin-top: 15px; }
+.related-link, .faq-inline details { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.related-link:hover { color: var(--wine); }
+.subpage-download { margin-top: 28px; }
+.subpage-download h2 { font-size: clamp(38px, 5vw, 60px); }
+@media (max-width: 760px) { .subpage-body { grid-template-columns: 1fr; } }
