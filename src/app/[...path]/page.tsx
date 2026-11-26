@@ -5,6 +5,7 @@ import { bankPages, bankSource, contact, copy, type BankPage, type BankLink } fr
 import inventory from "../data/bank-snapshot.json";
 
 type Props = { params: Promise<{ path: string[] }> };
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return [...bankPages.map((page) => ({ path: page.path.slice(1).split("/") })), { path: ["direktori"] }];
