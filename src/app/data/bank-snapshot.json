@@ -1,0 +1,17 @@
+{
+  "channels": [
+    {
+      "label": "Individu",
+      "href": "https://ibank.banksampoerna.co.id/ibi/"
+    },
+    {
+      "label": "Korporasi",
+      "href": "https://ibank.banksampoerna.co.id/bib/"
+    },
+    {
+      "label": "Sampoerna Mobile Banking",
+      "href": "https://sampoernamobile.banksampoerna.com/"
+    }
+  ],
+  "failed": []
+}

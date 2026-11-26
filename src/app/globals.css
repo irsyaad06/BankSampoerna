@@ -140,3 +140,54 @@ footer { border-top: 1px solid var(--line); padding: 27px 0 84px; }
 }
 @media (max-width: 350px) { .feature-grid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
+.bank-header .desktop-nav { gap: clamp(13px, 1.7vw, 30px); }
+.bank-menu { position: relative; }
+.bank-menu summary { list-style: none; }
+.bank-menu nav { position: absolute; z-index: 3; right: 0; top: calc(100% + 12px); min-width: 210px; background: white; border: 1px solid var(--line); padding: 10px; border-radius: 16px; box-shadow: 0 12px 30px #221e1f18; }
+.bank-menu nav a { display: block; padding: 9px 12px; }
+.bank-menu nav a:hover { text-decoration: underline; }
+.bank-intro { max-width: 64ch; margin-top: 16px; color: var(--muted); }
+.bank-grid, .exchange-grid { display: grid; gap: 14px; margin-top: 24px; }
+.bank-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.bank-panel { background: white; border: 1px solid var(--line); border-radius: 20px; padding: clamp(16px, 2.5vw, 30px); min-width: 0; }
+.bank-card { display: flex; align-items: center; justify-content: space-between; gap: 18px; font-weight: 700; overflow-wrap: anywhere; }
+.bank-card:hover { border-color: var(--wine); color: var(--wine); }
+.exchange-grid { grid-template-columns: 1.55fr 1fr; align-items: start; }
+.table-scroll { overflow-x: auto; }
+.table-scroll table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.table-scroll th, .table-scroll td { text-align: left; min-width: 75px; padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.table-scroll thead th { background: var(--ivory); }
+.bank-note { margin-top: 14px; color: var(--muted); font-size: .83rem; }
+.calculator { display: grid; gap: 9px; }
+.calculator label { display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; gap: 8px; font-size: .9rem; }
+.calculator input, .calculator select { min-width: 0; width: 100%; padding: 8px; border-radius: 9px; border: 1px solid #a0978c; background: #fff; color: var(--ink); font: inherit; }
+.calculator output { background: var(--ivory); padding: 12px; border-radius: 10px; color: var(--wine); font-weight: 700; overflow-wrap: anywhere; }
+.bank-quick { padding-top: 0; }
+.quick-links { display: grid; gap: 9px; }
+.bank-footer { background: var(--ink); color: white; padding-bottom: 31px; }
+.bank-footer .bank-note { color: #e4d9cf; }
+.bank-footer p { font-size: .86rem; }
+.bank-footer nav a:hover { text-decoration: underline; }
+.bank-detail { padding-top: clamp(25px, 5vw, 64px); }
+.bank-breadcrumb { color: var(--muted); margin-bottom: 14px; font-size: .86rem; overflow-wrap: anywhere; }
+.bank-breadcrumb a { text-decoration: underline; }
+.bank-detail-hero { background: radial-gradient(ellipse at top right, #edcfc5, transparent 72%), #f4ebde; border: 1px solid var(--line); border-radius: 26px 26px 86px 26px; padding: clamp(24px, 6vw, 80px); }
+.bank-detail-hero h1 { font-size: clamp(40px, 6vw, 80px); max-width: 24ch; overflow-wrap: anywhere; }
+.bank-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.bank-topics span { background: #ede4d8; padding: 6px 12px; border-radius: 30px; font-size: .83rem; }
+.bank-contact, .bank-data, .bank-resources, .bank-source { margin-top: 25px; }
+.bank-contact h2, .bank-resources h2 { font-size: clamp(31px, 4vw, 49px); }
+.bank-contact p { margin: 12px 0; }
+.bank-contact a { color: var(--wine); text-decoration: underline; }
+.bank-group { margin-top: 28px; scroll-margin-top: 20px; }
+@media (max-width: 1120px) {
+  .bank-header .desktop-nav { display: none; }
+  .bank-header .mobile-nav { display: block; }
+}
+@media (max-width: 760px) {
+  .exchange-grid { grid-template-columns: 1fr; }
+  .bank-menu .button { padding: 8px 12px; font-size: .77rem; }
+}
+@media (max-width: 355px) { .bank-header img { width: 94px; } }
+
+.bank-updates { padding-bottom: 0; }
